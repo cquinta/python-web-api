@@ -1,0 +1,38 @@
+body {
+    background-color: lightyellow;
+} 
+
+img {
+    border-radius: 50%;
+}
+
+#logo_python {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    border: 2px solid black;
+    margin: 0 auto;
+}
+
+#logo_django {
+    width: 50px;
+    height: 50px;
+    background-color: lightgreen;
+    border: 2px solid black;
+    margin: 0 auto;
+}
+
+p {
+       padding: 5px;
+}
+
+p.principal {
+    font-size: 20px;
+    font-weight: bold;
+    border: dashed 1px black;
+}
+p.aviso {
+    
+    border: dotted 4px solid red
+
+}
