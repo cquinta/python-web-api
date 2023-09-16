@@ -6,7 +6,7 @@ from wsgiref.simple_server import make_server
 from jinja2 import Environment, FileSystemLoader
 
 
-class Amtq:  
+class Amtq:
     def __init__(self):
         self.url_map = []
         self.template_folder = "templates"
@@ -65,5 +65,3 @@ class Amtq:
     def run(self, host="0.0.0.0", port=8000):
         server = make_server(host, port, self)
         server.serve_forever()
-            
-        

@@ -1,30 +1,38 @@
-
 from database import conn
-from amtq  import Amtq
+from amtq import Amtq
 
 app = Amtq()
-@app.route("^/$", template="list.template.html")
+
+
+@app.route(r"^/$", template="list.template.html")
 def post_list():
     posts = get_posts_from_database()
     return {"post_list": posts}
 
+@app.route(r"^/api$")
+def post_list_api():
+    posts = get_posts_from_database()
+    return {"post_list": posts}, "200 OK", "application/json"
 
-@app.route("^/(?P<id>\d{1,})$", template="post.template.html")
+@app.route(r"^/(?P<id>\d{1,})$", template="post.template.html")
 def post_detail(id):
     post = get_posts_from_database(post_id=id)[0]
     return {"post": post}
 
 
-@app.route("^/new$", template="form.template.html")
+@app.route(r"^/new$", template="form.template.html")
 def new_post_form():
     return {}
 
 
-@app.route("^/new$", method="POST")
+@app.route(r"^/new$", method="POST")
 def new_post_add(form):
     post = {item.name: item.value for item in form.list}
     add_new_post(post)
     return "New post Created with Success!", "201 Created", "text/plain"
+
+
+# Controllers
 
 
 def get_posts_from_database(post_id=None):
@@ -53,4 +61,3 @@ def add_new_post(post):
 
 if __name__ == "__main__":
     app.run()
-
