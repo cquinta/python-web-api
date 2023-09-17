@@ -132,3 +132,5 @@ comandos*
 .vscode
 .vscodelocal
 .*
+flaskenv
+envfile
