@@ -8,5 +8,6 @@ setup(
     "django",
     "django-markdownify",
     "django-extensions",
+    "dynaconf",
     ],
 )
