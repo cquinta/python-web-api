@@ -135,3 +135,4 @@ comandos*
 flaskenv
 envfile
 djangoenv
+blog_settings.toml
