@@ -45,5 +45,5 @@ ENTRYPOINT [ "python -m gunicorn", "-c", "python:djblog.gunicorn", "djblog.wsgi"
 
 EXPOSE 8000
 
-#CMD ["python -m gunicorn", "-c", "python:djblog.gunicorn", "djblog.wsgi"]
+#CMD ["/usr/local/bin/python -m gunicorn", "-c", "python:djblog.gunicorn", "djblog.wsgi"]
 
