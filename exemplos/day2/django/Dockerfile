@@ -31,6 +31,7 @@ ENV DEBUG="${DEBUG}" \
     BLOG_DATABASES__default__NAME="blog" \
     BLOG_DATABASES__default__USER="blog" \
     BLOG_DATABASES__default__HOST="blog_postgres" \
+    #CSRF_TRUSTED_ORIGINS='["http://*", "https://*"]' \
     DJANGO_SETTINGS_MODULE="djblog.settings"
 
 RUN python3 -m pip install install /app gunicorn psycopg2
@@ -40,10 +41,11 @@ RUN if [ "${DEBUG}" = "false" ]; then \
   fi
 
 RUN chmod +x /app/docker/entrypoint.sh
-
-ENTRYPOINT [ "python -m gunicorn", "-c", "python:djblog.gunicorn", "djblog.wsgi" ]
-
+RUN echo $PATH
+#RUN /usr/local/bin/python /app/manage.py migrate --noinput
+#ENTRYPOINT ["/app/docker/entrypoint.sh"]
 EXPOSE 8000
-
-#CMD ["/usr/local/bin/python -m gunicorn", "-c", "python:djblog.gunicorn", "djblog.wsgi"]
+#CMD echo $PATH
+CMD python -m gunicorn -c python:djblog.gunicorn djblog.wsgi
+#CMD ["python -m gunicorn", "-c", "python:djblog.gunicorn", "djblog.wsgi"]
 

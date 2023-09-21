@@ -24,6 +24,7 @@ TEMPLATES_DIR = BASE_DIR / 'templates'
 SECRET_KEY = 'django-insecure-pd(2#m079zkx@6&12kax7q4oq@o72xbwxt+_c&lf((76ui3_#f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -125,6 +126,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*']
+
 
 
 from dynaconf import DjangoDynaconf  # noqa
